@@ -10,7 +10,7 @@
   <h1><a href="/quiz/quizlist/quiz1.html">スタート</a></h1>
 
   <script type="text/javascript">
-    function clear() {
+    function clearLocalStorage() {
       localStorage.clear();
     }
   </script>
@@ -18,7 +18,7 @@
 
 <body>
   <h3><a href="/quiz/quizlist/result.html">結果</a></h3>
-  <input type="button" onclick="clear()" value="結果削除">
+  <button onclick="clearLocalStorage()">結果を削除</button>
   <br>
   <br>
 
