@@ -1,18 +1,27 @@
-let jsonURL = '50.json'; // JSONファイルのパスを指定
+// JSONデータを読み込むためのURL
+let jsonURL = '/quiz/50.json'; // JSONファイルのパスを指定
 
-// JSONデータを取得し、表示する関数
-function displayJSONData(data) {
-    let jsonContent = document.getElementById('quiz');
+// JSONデータを表示する関数
+function displayProblems(data) {
+    let problemList = document.getElementById('problemList');
     
-    // JSONデータを文字列に変換して表示
-    jsonContent.textContent = JSON.stringify(data, null, 2);
+    // 各問題をHTMLとして表示
+    data.forEach(problem => {
+        let problemHTML = `
+            <div>
+                <p>問題 ${problem.id}</p>
+                <p>${problem.original_text}</p>
+            </div>
+        `;
+        problemList.insertAdjacentHTML('beforeend', problemHTML);
+    });
 }
 
 // JSONデータを非同期で読み込む
-fetch("/quiz/q.js")
+fetch(jsonURL)
     .then(response => response.json())
     .then(data => {
-        displayJSONData(data);
+        displayProblems(data);
     })
     .catch(error => {
         console.error('JSONデータの読み込みエラー:', error);
