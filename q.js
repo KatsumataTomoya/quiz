@@ -24,6 +24,6 @@ function dataArray(els) {
     '<li>名前：' + id + '</li>'+
     '<li>学年：' + original_text + '</li>'+
     '</ul>';
-    array.insertAdjacentHTML('array',code);
+    array.insertAdjacentHTML('quiz',code);
   });
 }
