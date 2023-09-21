@@ -90,3 +90,25 @@
   </footer>
 </body>
 </html>
+
+
+window.onload = function(){
+  // テキストボックスのDOMを取得
+  const username = document.getElementById("username");
+  // 活性/非活性を切り替えるボタンのDOMを取得
+  const button = document.getElementById("sendbutton");
+  // 入力テキストのキーアップイベント
+  username.addEventListener('keyup', function() {
+    // テキストボックスに入力された値を取得
+    const text = username.value;
+    console.log(text);
+    // テキストが入力されている場合
+    if(text) {
+      // ボタンのdisabled属性を取り除く
+      button.disabled = null;
+    } else {
+      // ボタンにdisabledを設定する
+      button.disabled = "disabled";
+    }
+  })
+}
