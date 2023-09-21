@@ -7,10 +7,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="style.css">
 <title>問題</title>
+
+<script type="text/javascript">
+    <!--
+    var start = new Date();
+    // 初期化
+    var sec = 0;
+    var now = 0;
+    var datet = 0;
+    
+    function disp(){
+        now = new Date();
+        datet = parseInt((now.getTime() - start.getTime()) / 1000);
+    
+        hour = parseInt(datet / 3600);
+        min = parseInt((datet / 60) % 60);
+        sec = datet % 60;
+    
+        // 数値が1桁の場合、頭に0を付けて2桁で表示する指定
+        if(sec < 10) { sec = "0" + sec; }
+    
+        // フォーマットを指定（不要な行を削除する）
+        var timer1 = sec; // パターン1
+ 
+        // テキストフィールドにデータを渡す処理（不要な行を削除する）
+        document.form1.field1.value = timer1; // パターン1
+    
+        setTimeout("disp()", 1000);
+    }
+</script>
+
 </head>
 
+<body onLoad="disp()">
 
-<body>
+<form action="#" name="form1">
+<input type="text" name="field1" size="8"> パターン1<br>
+</form>
 <script src="q.js"></script>
 <hr>
 
@@ -61,5 +94,6 @@ s = "【<a href='/quiz" + random2 + "'>類題を解く（" + random2 + "）</a>�
 document.getElementById("next-content").innerHTML = s;
 }
 </script>
+
 </body>
 </html>
