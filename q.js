@@ -9,7 +9,7 @@ function displayJSONData(data) {
 }
 
 // JSONデータを非同期で読み込む
-fetch(/quiz/q.js)
+fetch("/quiz/q.js")
     .then(response => response.json())
     .then(data => {
         displayJSONData(data);
