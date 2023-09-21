@@ -19,7 +19,7 @@
         now = new Date();
         datet = parseInt((now.getTime() - start.getTime()) / 1000);
         sec = datet
-        
+
         // 数値が1桁の場合、頭に0を付けて2桁で表示する指定
         if(sec < 10) { sec = "0" + sec; }
     
@@ -38,7 +38,7 @@
 
 <body onload="disp()">
 <form action="#" name="form1">
-<input type="text" name="field1" size="8"> パターン1<br>
+<input name="field1" size="8">経過時間<br>
 </form>
 </body>
 
@@ -46,8 +46,9 @@
 <h2>問題2</h2>
 
 <div>工事班が土を掘った。最初の日に316立方メートル掘った。2日目から7日目までは、毎日230立方メートルを掘り続けた。この工事班は1週間で合計何立方メートルの土を掘った？</div>
+<br>
 
-<h2>記述</h2>
+<h2>回答欄</h2>
 
 <form id="form1" action="#">
 <input type="text" id="input-message">
