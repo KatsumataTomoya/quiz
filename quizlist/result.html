@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>結果</title>
+
+<script type="text/javascript">
+    function disp() {
+    var jsonobj1 = localStorage.getItem('Key1');
+    var result1 = document.getElementById("result1");
+    result1.innerHTML = jsonobj1;
+
+    var jsonobj2 = localStorage.getItem('Key2');
+    var result2 = document.getElementById("result2");
+    result2.innerHTML = jsonobj2;
+    }
+</script>
+</head>
+
+<body onload="disp()">
+<div>kekka</div>
+<div id="result1"></div>
+<div id="result2"></div>
+</body>
+
+</html>
