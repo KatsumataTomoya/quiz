@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>問題</title>
+
+<script type="text/javascript">
+    var start = new Date();
+    // 初期化
+    var sec = 0;
+    var now = 0;
+    var datet = 0;
+    
+    function disp(){
+        now = new Date();
+        datet = parseInt((now.getTime() - start.getTime()) / 1000);
+    
+        hour = parseInt(datet / 3600);
+        min = parseInt((datet / 60) % 60);
+        sec = datet % 60;
+    
+        // 数値が1桁の場合、頭に0を付けて2桁で表示する指定
+        if(sec < 10) { sec = "0" + sec; }
+    
+        // フォーマットを指定（不要な行を削除する）
+        var timer1 = sec; // パターン1
+ 
+        // テキストフィールドにデータを渡す処理（不要な行を削除する）
+        document.form1.field1.value = timer1; // パターン1
+    
+        setTimeout("disp()", 1000);
+    }
+</script>
+
+
+</head>
+
+
+<body>
+<h1>1. Python に触れてみよう</h1>
+<hr>
+<h2>問題2</h2>
+
+<div>工事班が土を掘った。最初の日に316立方メートル掘った。2日目から7日目までは、毎日230立方メートルを掘り続けた。この工事班は1週間で合計何立方メートルの土を掘った？</div>
+
+<h2>記述</h2>
+
+<form id="form1" action="#">
+<input type="text" id="input-message">
+<input type="button" onclick="showMessage()" value="回答">
+</form>
+
+</body>
+</html>
