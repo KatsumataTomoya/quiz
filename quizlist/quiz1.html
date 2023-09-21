@@ -37,11 +37,29 @@
 
   function stopTimer() {
     start = null;
+    var resulttime = sec;
     var time = document.getElementById("time");
     time.innerHTML = "回答時間：" + sec + "秒";
     var answer = document.getElementById("answer");
-    answer.innerHTML = "答え：" + "2006";
-    var hidden = document.getElementById("hidden");
+    answer.innerHTML = "答え：" + "20";
+    var hidden1 = document.getElementById("hidden1");
+    hidden1.innerHTML = "<h1><a href='/quiz/quizlist/quiz2.html'>次の問題へ</a></h1>";
+    var hidden2 = document.getElementById("hidden2");
+    hidden2.innerHTML = "※次の問題に移ると経過時間のカウントが始まります";
+
+    var obj = {
+      id : 1,
+      time : resulttime,
+      text : message.value,
+    };
+    var obj = JSON.stringify(obj);
+    localStorage.setItem('Key1', obj);
+
+    var jsonobj = localStorage.getItem('Key1');
+    var jsobj = JSON.parse(jsonobj);
+
+    var result = document.getElementById("result");
+    result.innerHTML = jsonobj;
     }
 
 </script>
@@ -54,8 +72,8 @@
 </body>
 
 <body>
-<h2>問題3</h2>
-<div>23×42+26×40</div>
+<h2>問題1</h2>
+<div>学校の2年生の子供達は、道路の脇に植木を行った。 子供達は2メートルごとに木を植え（道路の両端にも植えた）、最終的に合計11本の木を植えた。この小道は何メートルの長さ？</div>
 <br>
 <h2>回答欄</h2>
 
@@ -66,10 +84,12 @@
 <br>
 <div id="time"></div>
 <div id="answer"></div>
-<div id="hidden"><h1>
-    <a href="/quiz/quiz4.html">次の問題へ</a>
-</h1></div>
+<div id="hidden1"></div>
+<div id="hidden2"></div>
 
 </form>
+
+<div id="result"></div>
+
 </body>
 </html>
