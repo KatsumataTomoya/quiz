@@ -41,23 +41,23 @@
     var time = document.getElementById("time");
     time.innerHTML = "回答時間：" + sec + "秒";
     var answer = document.getElementById("answer");
-    answer.innerHTML = "答え：" + "2006";
+    answer.innerHTML = "答え：" + "1664";
     var hidden1 = document.getElementById("hidden1");
-    hidden1.innerHTML = "<h1><a href='/quiz/quizlist/quiz4.html'>次の問題へ</a></h1>";
+    hidden1.innerHTML = "<h1><a href='/quiz/quizlist/quiz46.html'>次の問題へ</a></h1>";
     var hidden2 = document.getElementById("hidden2");
     hidden2.innerHTML = "※次の問題に移ると経過時間のカウントが始まります";
     var hidden3 = document.getElementById("hidden3");
     hidden3.innerHTML = "<h5><a href='/quiz/quizlist/result.html'>結果へ</a></h5>";
 
     var obj = {
-      id : 3,
+      id : 45,
       time : resulttime,
       text : message.value,
     };
     var obj = JSON.stringify(obj);
-    localStorage.setItem('Key3', obj);
+    localStorage.setItem('Key45', obj);
 
-    var jsonobj = localStorage.getItem('Key3');
+    var jsonobj = localStorage.getItem('Key45');
     var jsobj = JSON.parse(jsonobj);
 
     var result = document.getElementById("result");
@@ -74,8 +74,8 @@
 </body>
 
 <body>
-<h2>問題3</h2>
-<div>23×42+26×40</div>
+<h2>問題45</h2>
+<div>1台のテレビの元の価格は1600ドルだった。最初に値上げ（3割増）され、その後値下げ（2割減）された。現在、1台のテレビはいくら？</div>
 <br>
 <h2>回答欄</h2>
 
