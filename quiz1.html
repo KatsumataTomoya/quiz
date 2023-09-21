@@ -5,95 +5,71 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
 <title>問題</title>
 
 <script type="text/javascript">
-    <!--
-    var start = new Date();
-    // 初期化
-    var sec = 0;
-    var now = 0;
-    var datet = 0;
+  var start = new Date();
+  var sec = 0;
+  var now = 0;
+  var datet = 0;
     
-    function disp(){
-        now = new Date();
-        datet = parseInt((now.getTime() - start.getTime()) / 1000);
-    
-        hour = parseInt(datet / 3600);
-        min = parseInt((datet / 60) % 60);
-        sec = datet % 60;
-    
-        // 数値が1桁の場合、頭に0を付けて2桁で表示する指定
-        if(sec < 10) { sec = "0" + sec; }
-    
-        // フォーマットを指定（不要な行を削除する）
-        var timer1 = sec; // パターン1
- 
-        // テキストフィールドにデータを渡す処理（不要な行を削除する）
-        document.form1.field1.value = timer1; // パターン1
-    
-        setTimeout("disp()", 1000);
-    }
-</script>
+  function disp(){
+    now = new Date();
+    datet = parseInt((now.getTime() - start.getTime()) / 1000);
+    sec = datet;
+    if(sec < 10) { sec = "0" + sec; }
+    var timer1 = sec;
+    document.form1.field1.value = timer1;
+    setTimeout("disp()", 1000);
 
+    const message = document.getElementById("message");
+    const button = document.getElementById("sendbutton");
+    message.addEventListener('keyup', function() {
+      const text = message.value;
+      console.log(text);
+      if(text) {
+        button.disabled = null;
+      } else {
+        button.disabled = "disabled";
+      }
+    })
+    }
+
+  function stopTimer() {
+    start = null;
+    var time = document.getElementById("time");
+    time.innerHTML = "回答時間：" + sec + "秒";
+    var answer = document.getElementById("answer");
+    answer.innerHTML = "答え：" + "20";
+    var hidden = document.getElementById("hidden");
+    }
+
+</script>
 </head>
 
-<body onLoad="disp()">
+<body onload="disp()">
+  <form action="#" name="form1">
+  <input name="field1" size="8" readonly>  経過時間<br>
+  </form>
+</body>
 
-<form action="#" name="form1">
-<input type="text" name="field1" size="8"> パターン1<br>
+<body>
+<h2>問題1</h2>
+<div>学校の2年生の子供達は、道路の脇に植木を行った。 子供達は2メートルごとに木を植え（道路の両端にも植えた）、最終的に合計11本の木を植えた。この小道は何メートルの長さ？</div>
+<br>
+<h2>回答欄</h2>
+
+<form id="form2" action="#">
+<input type="text" id="message" name="message">
+<input type="button" id="sendbutton" disabled required onclick="stopTimer()" value="回答">
+
+<br>
+<div id="time"></div>
+<div id="answer"></div>
+<div id="hidden"><h1>
+    <a href="/quiz/quiz2.html">次の問題へ</a>
+</h1></div>
+
 </form>
-<script src="q.js"></script>
-<hr>
-
-<h2>
-問題1
-</h2>
-
-<div>
-学校の2年生の子供達は、道路の脇に植木を行った。 子供達は2メートルごとに木を植え（道路の両端にも植えた）、最終的に合計11本の木を植えた。この小道は何メートルの長さ？
-</div>
-
-<h2>記述</h2>
-<form id="form1" action="#">
-<input type="text" id="input-message">
-<input type="button" onclick="showMessage()" value="回答">
-</form>
-
-<h2>解答</h2>
-<p id="output-message"></p>
-<div id="next-content"></div>
-<script language="javascript" type="text/javascript">
-const showMessage = () => {
-const textbox = document.getElementById("input-message");
-const inputValue = textbox.value;
-
-const output = judge;
-//出力用の p 要素にメッセージを表示
-document.getElementById("output-message").innerHTML = output;
-next(judge);
-}
-function next(judge) {
-var exclude = 1;
-var arr1 = [];
-for(var i = 1; i <= 21; ++i) {
-if(i != exclude) {
-arr1.push(i);
-}
-}
-var random1 = arr1[Math.floor(Math.random() * arr1.length)];
-var arr2 = [4, 5, 10, 13, 18];
-var random2 = arr2[Math.floor(Math.random() * arr2.length)];
-var s;
-if(judge == "正解") {
-s = "【<a href='/quiz" + random1 + "'>次の問題へ（" + random1 + "）</a>】";
-} else {
-s = "【<a href='/quiz" + random2 + "'>類題を解く（" + random2 + "）</a>】";
-}
-document.getElementById("next-content").innerHTML = s;
-}
-</script>
-
 </body>
 </html>
