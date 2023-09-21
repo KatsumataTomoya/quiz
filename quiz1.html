@@ -13,13 +13,14 @@
 <body>
 <script src="q.js"></script>
 <hr>
-<h2><div id="id">   
-</div></h2>
 
-<div id="quiz">   
+<h2>
+問題1
+</h2>
+
+<div>
+学校の2年生の子供達は、道路の脇に植木を行った。 子供達は2メートルごとに木を植え（道路の両端にも植えた）、最終的に合計11本の木を植えた。この小道は何メートルの長さ？
 </div>
-
-<div>か</div>
 
 <h2>記述</h2>
 <form id="form1" action="#">
@@ -34,13 +35,7 @@
 const showMessage = () => {
 const textbox = document.getElementById("input-message");
 const inputValue = textbox.value;
-//テキストボックスの値を正誤判定
-var judge = "";
-if(inputValue == "3.0") {
-judge = "正解";
-} else {
-judge = "不正解";
-}
+
 const output = judge;
 //出力用の p 要素にメッセージを表示
 document.getElementById("output-message").innerHTML = output;
