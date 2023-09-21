@@ -3,13 +3,22 @@ let jsonURL = '/quiz/50.json'; // JSONファイルのパスを指定
 
 // JSONデータを表示する関数
 function displayProblems(data) {
-    let problemList = document.getElementById('problemList');
+    let idList = document.getElementById('id');
+    let problemList = document.getElementById('quiz');
     
     // 各問題をHTMLとして表示
     data.forEach(problem => {
-        let problemHTML = `
+        let problemid = `
             <div>
                 <p>問題 ${problem.id}</p>
+            </div>
+        `;
+        idList.insertAdjacentHTML('beforeend', problemid);
+    });
+
+    data.forEach(problem => {
+        let problemHTML = `
+            <div>
                 <p>${problem.original_text}</p>
             </div>
         `;
