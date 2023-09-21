@@ -18,11 +18,8 @@
     function disp(){
         now = new Date();
         datet = parseInt((now.getTime() - start.getTime()) / 1000);
-    
-        hour = parseInt(datet / 3600);
-        min = parseInt((datet / 60) % 60);
-        sec = datet % 60;
-    
+        sec = datet
+        
         // 数値が1桁の場合、頭に0を付けて2桁で表示する指定
         if(sec < 10) { sec = "0" + sec; }
     
