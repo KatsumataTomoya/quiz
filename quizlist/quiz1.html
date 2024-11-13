@@ -59,15 +59,16 @@
       }
     }
 
+    var hidden1 = document.getElementById("hidden1");
+    hidden1.innerHTML = "<h1><a href='/quiz/quizlist/quiz" + 2 + ".html'>似た問題を解いてみる</a></h1>";
+    var hidden4 = document.getElementById("hidden4");
+    hidden4.innerHTML = "<h1><a href='/quiz/quizlist/quiz" + 3 + ".html'>異なる問題にチャレンジする</a></h1>";
+
     // 回答済みでない問題がある場合にランダムな問題を表示
     if (unansweredQuestions.length > 0) {
       var randomIndex = Math.floor(Math.random() * unansweredQuestions.length);
       var randomQuestion = unansweredQuestions[randomIndex];
 
-      var hidden1 = document.getElementById("hidden1");
-      hidden1.innerHTML = "<h1><a href='/quiz/quizlist/quiz" + randomQuestion + ".html'>似た問題を解いてみる</a></h1>";
-      var hidden4 = document.getElementById("hidden4");
-      hidden4.innerHTML = "<h1><a href='/quiz/quizlist/quiz" + randomQuestion + ".html'>異なる問題にチャレンジする</a></h1>";
       var hidden5 = document.getElementById("hidden5");
       hidden5.innerHTML = "<h1><a href='/quiz/quizlist/quiz" + randomQuestion + ".html'>ランダムな問題を試してみる</a></h1>";
     } else {
@@ -130,6 +131,8 @@
 <div id="hidden2"></div>
 <h2><a href="/quiz/index.html">最初のページに戻る</a></h2>
 <div id="hidden3"></div>
+<div id="hidden4"></div>
+<div id="hidden5"></div>
 
 </form>
 
