@@ -40,8 +40,8 @@
     var resulttime = sec;
 
     var correctAnswer = 20; // 正解を定義
-    var userAnswer = parseInt(document.getElementById("message").value, 10); // ユーザーの回答を取得して整数に変換
-    var answer = document.getElementById("message");
+    var userAnswer = parseInt(document.getElementById("ans").value, 10); // ユーザーの回答を取得して整数に変換
+    var answer = document.getElementById("ans");
 
     // 正解・不正解を判定
     if (userAnswer === correctAnswer) {
@@ -129,8 +129,9 @@
 <input type="button" id="sendbutton" disabled required onclick="stopTimer()" value="回答">
 
 <br>
-<div id="time"></div>
+<div id="ans"></div>
 <div id="answer"></div>
+<div id="time"></div>
 <div id="hidden1"></div>
 <div id="hidden4"></div>
 <div id="hidden5"></div>
