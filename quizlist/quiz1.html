@@ -44,17 +44,14 @@
     var answer = document.getElementById("ans");
 
     // 正解・不正解を判定
-    var resultText = "";
     if (userAnswer === correctAnswer) {
-      resultText = "正解";
       answer.innerHTML = "正解";
     } else {
-      resultText = "不正解";
       answer.innerHTML = "不正解";
     }
 
     var answer = document.getElementById("answer");
-    answer.innerHTML = "答え：" + str(correctAnswer);
+    answer.innerHTML = "答え：" + "20";
     var time = document.getElementById("time");
     time.innerHTML = "回答時間：" + sec + "秒";
 
