@@ -44,6 +44,7 @@
     var answer = document.getElementById("ans");
 
     // 正解・不正解を判定
+    var result = "";
     if (userAnswer === correctAnswer) {
       answer.innerHTML = "正解";
       result = "正解";
@@ -53,7 +54,7 @@
     }
 
     var answer = document.getElementById("answer");
-    answer.innerHTML = "答え：" + str(correctAnswer);
+    answer.innerHTML = "答え：" + String(correctAnswer);
     var time = document.getElementById("time");
     time.innerHTML = "回答時間：" + sec + "秒";
 
