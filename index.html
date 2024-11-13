@@ -8,22 +8,35 @@
   <div>スタートを押すと問題1から始まります。</div>
   <div>問題を開いたタイミングで経過時間のカウントが始まります。</div>
   <br>
-  <div>データは、本研究のためにのみ使用されます。具体的には、回答内容と回答時間を分析することで、問題のカテゴリ化を行う事を目的としています。</div>
-  <div>データは外部に公開されることはありません。また、結果が発表される場合でも、個人が特定できるような形での発表は行いません。</div>
-  <div>個人を特定できる情報は一切収集しません。</div>
-  <div>収集したデータは、実習が終了した時点で、安全に破棄されます。</div>
-  <h1><a href="/quiz/quizlist/quiz1.html">スタート</a></h1>
+  <div>算数の問題が全部で50問あります。</div>
+  <div>次の問題に進むときは、3つの選択肢から好きなものを選んでください。</div>
 
   <script type="text/javascript">
     function clearLocalStorage() {
       localStorage.clear();
     }
+
+    function startRandomQuiz() {
+      // 1〜50のランダムな問題番号を生成
+      var randomQuestion = Math.floor(Math.random() * 50) + 1;
+      // ランダムに生成された問題番号に基づいてリンクを作成
+      var quizLink = '/quiz/quizlist/quiz' + randomQuestion + '.html';
+      // スタートリンクをそのランダムリンクに変更
+      document.getElementById("start").href = quizLink;
+      document.getElementById("start").innerText = "問題 " + randomQuestion + " を開始";
+    }
+
+    // ページ読み込み時に「スタート」リンクをランダムに設定
+    window.onload = function() {
+      startRandomQuiz();
+    }
   </script>
 </head>
 
 <body>
-  <h3><a href="/quiz/quizlist/result.html">結果</a></h3>
-  <button onclick="clearLocalStorage()">結果を削除</button>
+  <h1><a href="#">スタート</a></h1>
+  <h3><a href="/quiz/quizlist/result.html">回答履歴を見る</a></h3>
+  <button onclick="clearLocalStorage()">回答履歴を削除</button>
   <br>
   <br>
 
