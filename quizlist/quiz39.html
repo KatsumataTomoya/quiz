@@ -38,30 +38,93 @@
   function stopTimer() {
     start = null;
     var resulttime = sec;
+
+    Answer = document.getElementById("message").value
+    var correctAnswer = 4; // 正解を定義
+    var userAnswer = parseInt(document.getElementById("message").value, 10);
+    var answer = document.getElementById("ans");
+
+    var result = "";
+    if (userAnswer === correctAnswer) {
+      answer.innerHTML = "正解";
+      result = "正解";
+    } else {
+      answer.innerHTML = "不正解";
+      result = "不正解";
+    }
+    var answer = document.getElementById("answer");
+    answer.innerHTML = "答え：" + String(correctAnswer);
     var time = document.getElementById("time");
     time.innerHTML = "回答時間：" + sec + "秒";
-    var answer = document.getElementById("answer");
-    answer.innerHTML = "答え：" + "4";
+
+    var currentQuestionId = 39; //ここを現在の問題番号に変更
+    var answeredQuestions = JSON.parse(localStorage.getItem("answeredQuestions") || "[]");
+    if (!answeredQuestions.includes(currentQuestionId)) {
+      answeredQuestions.push(currentQuestionId);
+      localStorage.setItem("answeredQuestions", JSON.stringify(answeredQuestions));
+    }
+
+    var resultString = `(問題${currentQuestionId}, ${result}, 入力した回答：${Answer}, 回答時間：${sec}秒)`;
+    localStorage.setItem('Key39', resultString); // キーを変更
+    var displayResult = document.getElementById("result");
+    displayResult.innerHTML = resultString;
+
+    var unansweredQuestions = [];
+    for (var i = 1; i <= 50; i++) {
+      if (!answeredQuestions.includes(i)) {
+        unansweredQuestions.push(i);
+      }
+    }
+
+    // 似た問題の優先順位リスト
+    var similarQuestions = [11, 12, 13, 14, 15];
+    var nextSimilarQuestion = null;
+    for (var i = 0; i < similarQuestions.length; i++) {
+      if (!answeredQuestions.includes(similarQuestions[i])) {
+        nextSimilarQuestion = similarQuestions[i];
+        break;
+      }
+    }
+
+    // 異なる問題の優先順位リスト
+    var differentQuestions = [21, 22, 23, 24, 25];
+    var nextdifferentQuestion = null;
+    for (var i = 0; i < differentQuestions.length; i++) {
+      if (!answeredQuestions.includes(differentQuestions[i])) {
+        nextdifferentQuestion = differentQuestions[i];
+        break;
+      }
+    }
+
     var hidden1 = document.getElementById("hidden1");
-    hidden1.innerHTML = "<h1><a href='/quiz/quizlist/quiz40.html'>次の問題へ</a></h1>";
+    if (nextSimilarQuestion) {
+      hidden1.innerHTML = "<h1><a href='/quiz/quizlist/quiz" + nextSimilarQuestion + ".html'>似た問題を解いてみる</a></h1>";
+    } else {
+      hidden1.innerHTML = "";
+    }
+
+    var hidden4 = document.getElementById("hidden4");
+    if (nextdifferentQuestion) {
+      hidden4.innerHTML = "<h1><a href='/quiz/quizlist/quiz" + nextdifferentQuestion + ".html'>異なる問題にチャレンジする</a></h1>";
+    } else {
+      hidden4.innerHTML = "";
+    }
+
+    if (unansweredQuestions.length > 0) {
+      var randomIndex = Math.floor(Math.random() * unansweredQuestions.length);
+      var randomQuestion = unansweredQuestions[randomIndex];
+
+      var hidden5 = document.getElementById("hidden5");
+      hidden5.innerHTML = "<h1><a href='/quiz/quizlist/quiz" + randomQuestion + ".html'>ランダムな問題を試してみる</a></h1>";
+    } else {
+      var hidden5 = document.getElementById("hidden5");
+      hidden5.innerHTML = "<h1>すべての問題を解きました</h1>";
+    }
+
     var hidden2 = document.getElementById("hidden2");
     hidden2.innerHTML = "※次の問題に移ると経過時間のカウントが始まります";
     var hidden3 = document.getElementById("hidden3");
-    hidden3.innerHTML = "<h5><a href='/quiz/quizlist/result.html'>結果へ</a></h5>";
-
-    var obj = {
-      id : 39,
-      time : resulttime,
-      text : message.value,
-    };
-    var obj = JSON.stringify(obj);
-    localStorage.setItem('Key39', obj);
-
-    var jsonobj = localStorage.getItem('Key39');
-    var jsobj = JSON.parse(jsonobj);
-
-    var result = document.getElementById("result");
-    result.innerHTML = jsonobj;
+    hidden3.innerHTML = "<h5><a href='/quiz/quizlist/result.html'>回答履歴を見る</a></h5>";
     }
 
 </script>
@@ -84,9 +147,12 @@
 <input type="button" id="sendbutton" disabled required onclick="stopTimer()" value="回答">
 
 <br>
-<div id="time"></div>
+<h2><div id="ans"></div></h2>
 <div id="answer"></div>
+<div id="time"></div>
 <div id="hidden1"></div>
+<div id="hidden4"></div>
+<div id="hidden5"></div>
 <div id="hidden2"></div>
 <h2><a href="/quiz/index.html">最初のページに戻る</a></h2>
 <div id="hidden3"></div>
