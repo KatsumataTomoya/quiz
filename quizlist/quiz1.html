@@ -38,10 +38,22 @@
   function stopTimer() {
     start = null;
     var resulttime = sec;
-    var time = document.getElementById("time");
-    time.innerHTML = "回答時間：" + sec + "秒";
+
+    var correctAnswer = 20; // 正解を定義
+    var userAnswer = parseInt(document.getElementById("message").value, 10); // ユーザーの回答を取得して整数に変換
+    var answer = document.getElementById("answer");
+
+    // 正解・不正解を判定
+    if (userAnswer === correctAnswer) {
+      answer.innerHTML = "正解";
+    } else {
+      answer.innerHTML = "不正解";
+    }
+
     var answer = document.getElementById("answer");
     answer.innerHTML = "答え：" + "20";
+    var time = document.getElementById("time");
+    time.innerHTML = "回答時間：" + sec + "秒";
 
     // 回答した問題番号を記録
     var currentQuestionId = 1; //ここを現在の問題番号に変更
@@ -73,8 +85,8 @@
       hidden5.innerHTML = "<h1><a href='/quiz/quizlist/quiz" + randomQuestion + ".html'>ランダムな問題を試してみる</a></h1>";
     } else {
       // 全ての問題が回答済みの場合の処理
-      var hidden1 = document.getElementById("hidden1");
-      hidden1.innerHTML = "<h1>すべての問題を解きました</h1>";
+      var hidden5 = document.getElementById("hidden5");
+      hidden5.innerHTML = "<h1>すべての問題を解きました</h1>";
     }
 
     var hidden2 = document.getElementById("hidden2");
