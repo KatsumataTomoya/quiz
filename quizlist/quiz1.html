@@ -46,8 +46,10 @@
     // 正解・不正解を判定
     if (userAnswer === correctAnswer) {
       answer.innerHTML = "正解";
+      result = "正解";
     } else {
       answer.innerHTML = "不正解";
+      result = "不正解";
     }
 
     var answer = document.getElementById("answer");
@@ -62,6 +64,13 @@
       answeredQuestions.push(currentQuestionId);
       localStorage.setItem("answeredQuestions", JSON.stringify(answeredQuestions));
     }
+
+    // 回答結果を保存
+    var resultString = `(問題${currentQuestionId}, ${result}, 入力した回答：${userAnswer}, 回答時間：${sec}秒)`;
+    localStorage.setItem('Key1', resultString);
+    // 保存された結果を画面に表示
+    var displayResult = document.getElementById("result");
+    displayResult.innerHTML = resultString;
 
     // 回答済みでない問題のリストを取得
     var unansweredQuestions = [];
@@ -123,20 +132,6 @@
     hidden2.innerHTML = "※次の問題に移ると経過時間のカウントが始まります";
     var hidden3 = document.getElementById("hidden3");
     hidden3.innerHTML = "<h5><a href='/quiz/quizlist/result.html'>回答履歴を見る</a></h5>";
-
-    var obj = {
-      id : 1,
-      time : resulttime,
-      text : message.value,
-    };
-    var obj = JSON.stringify(obj);
-    localStorage.setItem('Key1', obj);
-
-    var jsonobj = localStorage.getItem('Key1');
-    var jsobj = JSON.parse(jsonobj);
-
-    var result = document.getElementById("result");
-    result.innerHTML = jsonobj;
     }
 
 </script>
