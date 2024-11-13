@@ -39,6 +39,7 @@
     start = null;
     var resulttime = sec;
 
+    Answer = document.getElementById("message").value
     var correctAnswer = 20; // 正解を定義
     var userAnswer = parseInt(document.getElementById("message").value, 10); // ユーザーの回答を取得して整数に変換
     var answer = document.getElementById("ans");
@@ -67,7 +68,7 @@
     }
 
     // 回答結果を保存
-    var resultString = `(問題${currentQuestionId}, ${result}, 入力した回答：${userAnswer}, 回答時間：${sec}秒)`;
+    var resultString = `(問題${currentQuestionId}, ${result}, 入力した回答：${Answer}, 回答時間：${sec}秒)`;
     localStorage.setItem('Key1', resultString);
     // 保存された結果を画面に表示
     var displayResult = document.getElementById("result");
