@@ -39,6 +39,7 @@
     start = null;
     var resulttime = sec;
 
+    Answer = document.getElementById("message").value
     var correctAnswer = 32; // 正解を定義
     var userAnswer = parseInt(document.getElementById("message").value, 10);
     var answer = document.getElementById("ans");
@@ -63,7 +64,7 @@
       localStorage.setItem("answeredQuestions", JSON.stringify(answeredQuestions));
     }
 
-    var resultString = `(問題${currentQuestionId}, ${result}, 入力した回答：${userAnswer}, 回答時間：${sec}秒)`;
+    var resultString = `(問題${currentQuestionId}, ${result}, 入力した回答：${Answer}, 回答時間：${sec}秒)`;
     localStorage.setItem('Key4', resultString); // キーを変更
     var displayResult = document.getElementById("result");
     displayResult.innerHTML = resultString;
