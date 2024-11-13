@@ -43,10 +43,47 @@
     var answer = document.getElementById("answer");
     answer.innerHTML = "答え：" + "20";
 
-    var randomQuestion = Math.floor(Math.random() * 50) + 1;
+    // 回答した問題番号を記録
+    var currentQuestionId = 1; //ここを現在の問題番号に変更
+    var answeredQuestions = JSON.parse(localStorage.getItem("answeredQuestions") || "[]");
+    if (!answeredQuestions.includes(currentQuestionId)) {
+      answeredQuestions.push(currentQuestionId);
+      localStorage.setItem("answeredQuestions", JSON.stringify(answeredQuestions));
+    }
+
+    // 回答済みでない問題のリストを取得
+    var unansweredQuestions = [];
+    for (var i = 1; i <= 10; i++) {
+      if (!answeredQuestions.includes(i)) {
+        unansweredQuestions.push(i);
+      }
+    }
+
+    // 回答済みでない問題がある場合にランダムな問題を表示
+    if (unansweredQuestions.length > 0) {
+      var randomIndex = Math.floor(Math.random() * unansweredQuestions.length);
+      var randomQuestion = unansweredQuestions[randomIndex];
+
+      var hidden1 = document.getElementById("hidden1");
+      hidden1.innerHTML = "<h1><a href='/quiz/quizlist/quiz" + randomQuestion + ".html'>似た問題を解いてみる</a></h1>";
+      var hidden4 = document.getElementById("hidden4");
+      hidden4.innerHTML = "<h1><a href='/quiz/quizlist/quiz" + randomQuestion + ".html'>異なる問題にチャレンジする</a></h1>";
+      var hidden5 = document.getElementById("hidden5");
+      hidden5.innerHTML = "<h1><a href='/quiz/quizlist/quiz" + randomQuestion + ".html'>ランダムな問題を試してみる</a></h1>";
+    } else {
+      // 全ての問題が回答済みの場合の処理
+      var hidden1 = document.getElementById("hidden1");
+      hidden1.innerHTML = "<h1>すべての問題を解きました</h1>";
+    }
+
 
     var hidden1 = document.getElementById("hidden1");
-    hidden1.innerHTML = "<h1><a href='/quiz/quizlist/quiz" + randomQuestion + ".html'>次の問題へ</a></h1>";
+    hidden1.innerHTML = "<h1><a href='/quiz/quizlist/quiz" + randomQuestion + ".html'>似た問題を解いてみる</a></h1>";
+    var hidden4 = document.getElementById("hidden4");
+    hidden4.innerHTML = "<h1><a href='/quiz/quizlist/quiz" + randomQuestion + ".html'>異なる問題にチャレンジする</a></h1>";
+    var hidden5 = document.getElementById("hidden5");
+    hidden5.innerHTML = "<h1><a href='/quiz/quizlist/quiz" + randomQuestion + ".html'>ランダムな問題を試してみる</a></h1>";
+
     var hidden2 = document.getElementById("hidden2");
     hidden2.innerHTML = "※次の問題に移ると経過時間のカウントが始まります";
     var hidden3 = document.getElementById("hidden3");
