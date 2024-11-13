@@ -66,16 +66,6 @@
       localStorage.setItem("answeredQuestions", JSON.stringify(answeredQuestions));
     }
 
-    // 回答履歴を取得し、新しいエントリーを追加
-    var history = JSON.parse(localStorage.getItem("history") || "[]");
-    var historyEntry = `(問題${currentQuestionId}, ${resultText}, 入力した回答: ${userAnswer}, 回答時間: ${sec}秒)`;
-    history.push(historyEntry);
-    localStorage.setItem("history", JSON.stringify(history));
-
-    // 回答履歴を表示
-    var result = document.getElementById("result");
-    result.innerHTML = "<h3>回答履歴</h3>" + history.join("<br>");
-
     // 回答済みでない問題のリストを取得
     var unansweredQuestions = [];
     for (var i = 1; i <= 50; i++) {
