@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+
+「似た問題を解いてみる」
+リストの中でランダムな場合の処理
+
+// 似た問題の優先順位リスト
+var similarQuestions = [2, 4, 3, 5];
+var nextSimilarQuestion = null;
+
+var SimrandomunansQ = similarQuestions.filter(function(question) {
+  return !answeredQuestions.includes(question);
+});
+if (SimrandomunansQ.length > 0) {
+  var randomIndex = Math.floor(Math.random() * SimrandomunansQ.length);
+  nextSimilarQuestion = SimrandomunansQ[randomIndex];
+}
+
+「異なる問題にチャレンジする」
+リストの中でランダムな場合の処理
+
+// 異なる問題の優先順位リスト
+var differentQuestions = [21, 22, 23, 24, 25];
+var nextdifferentQuestion = null;
+
+var DifrandomunansQ = differentQuestions.filter(function(question) {
+  return !answeredQuestions.includes(question);
+});
+if (DifrandomunansQ.length > 0) {
+  var randomIndex = Math.floor(Math.random() * DifrandomunansQ.length);
+  nextdifferentQuestion = DifrandomunansQ[randomIndex];
+}
+
+
