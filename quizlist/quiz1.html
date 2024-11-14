@@ -86,18 +86,16 @@
     var similarQuestions = [2, 4, 3, 5];
     var nextSimilarQuestion = null;
     
-
-    // 未回答の質問をフィルタリング
-    var unansweredQuestions = similarQuestions.filter(function(question) {
+    // リストの中でランダムな場合の処理
+    var randomunansweredQuestions = similarQuestions.filter(function(question) {
       return !answeredQuestions.includes(question);
     });
-    // ランダムに1つ選択
-    if (unansweredQuestions.length > 0) {
-      var randomIndex = Math.floor(Math.random() * unansweredQuestions.length);
-      nextSimilarQuestion = unansweredQuestions[randomIndex];
+    if (randomunansweredQuestions.length > 0) {
+      var randomIndex = Math.floor(Math.random() * randomunansweredQuestions.length);
+      nextSimilarQuestion = randomunansweredQuestions[randomIndex];
     }
 
-    
+
     // 異なる問題の優先順位リスト
     var differentQuestions = [21, 22, 23, 24, 25];
     var nextdifferentQuestion = null;
