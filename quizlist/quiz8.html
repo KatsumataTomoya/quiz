@@ -77,7 +77,7 @@
     }
 
     // 似た問題の優先順位リスト
-    var similarQuestions = [11, 12, 13, 14, 15];
+    var similarQuestions = [9, 7, 15, 4, 42, 17, 38, 24, 46, 26, 39];
     var nextSimilarQuestion = null;
     for (var i = 0; i < similarQuestions.length; i++) {
       if (!answeredQuestions.includes(similarQuestions[i])) {
@@ -87,7 +87,7 @@
     }
 
     // 異なる問題の優先順位リスト
-    var differentQuestions = [21, 22, 23, 24, 25];
+    var differentQuestions = [10, 13, 14, 23, 29, 30, 12, 37, 50, 28, 18, 33];
     var nextdifferentQuestion = null;
     for (var i = 0; i < differentQuestions.length; i++) {
       if (!answeredQuestions.includes(differentQuestions[i])) {
