@@ -57,7 +57,7 @@
     var answer = document.getElementById("answer");
     answer.innerHTML = "答え：" + String(correctAnswer);
     var time = document.getElementById("time");
-    time.innerHTML = "回答時間：" + sec + "秒";
+    time.innerHTML = "解答時間：" + sec + "秒";
 
     // 回答した問題番号を記録
     var currentQuestionId = 1; //ここを現在の問題番号に変更
@@ -134,7 +134,7 @@
     var hidden2 = document.getElementById("hidden2");
     hidden2.innerHTML = "※次の問題に移ると経過時間のカウントが始まります";
     var hidden3 = document.getElementById("hidden3");
-    hidden3.innerHTML = "<h5><a href='/quiz/quizlist/result.html'>回答履歴を見る</a></h5>";
+    hidden3.innerHTML = "<h5><a href='/quiz/quizlist/result.html'>解答履歴を見る</a></h5>";
     }
 
 </script>
@@ -150,7 +150,7 @@
 <h2>問題1</h2>
 <div>学校の2年生の子供達は、道路の脇に植木を行った。 子供達は2メートルごとに木を植え（道路の両端にも植えた）、最終的に合計11本の木を植えた。この小道は何メートルの長さ？</div>
 <br>
-<h2>回答欄</h2>
+<h2>解答欄</h2>
 
 <form id="form2" action="#">
 <input type="text" id="message" name="message">
