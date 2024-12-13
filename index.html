@@ -17,17 +17,11 @@
     function clearLocalStorage() {
       localStorage.clear();
     }
-
     function startRandomQuiz() {
-      // 1〜50のランダムな問題番号を生成
       var randomQuestion = Math.floor(Math.random() * 50) + 1;
-      // ランダムに生成された問題番号に基づいてリンクを作成
       var quizLink = '/quiz/quizlist/quiz' + randomQuestion + '.html';
-      // スタートリンクをそのランダムリンクに変更
       document.getElementById("start").href = quizLink;
     }
-
-    // ページ読み込み時に「スタート」リンクをランダムに設定
     window.onload = function() {
       startRandomQuiz();
     }
@@ -40,7 +34,6 @@
   <button onclick="clearLocalStorage()">解答履歴を削除</button>
   <br>
   <br>
-
   <a href="/quiz/quizlist/quiz1.html">問題1</a>
   <a href="/quiz/quizlist/quiz2.html">問題2</a>
   <a href="/quiz/quizlist/quiz3.html">問題3</a>
@@ -52,7 +45,6 @@
   <a href="/quiz/quizlist/quiz9.html">問題9</a>
   <a href="/quiz/quizlist/quiz10.html">問題10</a>
   <br>
-
   <a href="/quiz/quizlist/quiz11.html">問題11</a>
   <a href="/quiz/quizlist/quiz12.html">問題12</a>
   <a href="/quiz/quizlist/quiz13.html">問題13</a>
@@ -64,7 +56,6 @@
   <a href="/quiz/quizlist/quiz19.html">問題19</a>
   <a href="/quiz/quizlist/quiz20.html">問題20</a>
   <br>
-
   <a href="/quiz/quizlist/quiz21.html">問題21</a>
   <a href="/quiz/quizlist/quiz22.html">問題22</a>
   <a href="/quiz/quizlist/quiz23.html">問題23</a>
@@ -76,7 +67,6 @@
   <a href="/quiz/quizlist/quiz29.html">問題29</a>
   <a href="/quiz/quizlist/quiz30.html">問題30</a>
   <br>
-
   <a href="/quiz/quizlist/quiz31.html">問題31</a>
   <a href="/quiz/quizlist/quiz32.html">問題32</a>
   <a href="/quiz/quizlist/quiz33.html">問題33</a>
@@ -88,7 +78,6 @@
   <a href="/quiz/quizlist/quiz39.html">問題39</a>
   <a href="/quiz/quizlist/quiz40.html">問題40</a>
   <br>
-
   <a href="/quiz/quizlist/quiz41.html">問題41</a>
   <a href="/quiz/quizlist/quiz42.html">問題42</a>
   <a href="/quiz/quizlist/quiz43.html">問題43</a>
@@ -100,6 +89,5 @@
   <a href="/quiz/quizlist/quiz49.html">問題49</a>
   <a href="/quiz/quizlist/quiz50.html">問題50</a>
   <br>
-
 </body>
 </html>
