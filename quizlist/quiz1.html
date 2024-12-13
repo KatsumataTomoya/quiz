@@ -64,7 +64,7 @@
       localStorage.setItem("answeredQuestions", JSON.stringify(answeredQuestions));
     }
 
-    var resultString = `(問題${currentQuestionId}, ${result}, 入力した回答：${Answer}, 回答時間：${sec}秒)`;
+    var resultString = `(問題${currentQuestionId}, ${result}, 入力した解答：${Answer}, 解答時間：${sec}秒)`;
     localStorage.setItem('Key1', resultString);
     var displayResult = document.getElementById("result");
     displayResult.innerHTML = resultString;
@@ -137,7 +137,7 @@
 <h2>解答欄</h2>
 <form id="form2" action="#">
 <input type="text" id="message" name="message">
-<input type="button" id="sendbutton" disabled required onclick="stopTimer()" value="回答">
+<input type="button" id="sendbutton" disabled required onclick="stopTimer()" value="解答">
 <br>
 <h2><div id="ans"></div></h2>
 <div id="answer"></div>
